@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='index.css') }}">
+</head>
+<body>
+    <div class="contents">
+        <div
+        role="alert"
+        class="relative left-1/2 -translate-x-1/2 hidden items-center max-w-max px-4 py-2 text-xs text-white bg-red-500 rounded-lg font-light"
+        id="alert"
+        data-dismissible="alert"
+        >
+            <div class="mr-12" id="text">A dismissible alert for showing message.</div>
+            <button
+                role="button"
+                data-dismissible-target="alert"
+                aria-label="Close"
+                class="!absolute right-3 h-6 max-h-[32px] w-6 max-w-[32px] select-none rounded-lg text-center align-middle font-sans text-xs font-medium uppercase text-white transition-all hover:bg-white/10 active:bg-white/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                id="dismiss-btn"
+            >
+                <span class="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    class="w-4 h-"
+                    stroke-width="2"
+                >
+                    <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                    ></path>
+                </svg>
+                </span>
+            </button>
+        </div>
+
+        {% block content %}
+            HEY!!!
+        {% endblock %}
+    </div>
+    <script src="{{ url_for('static', filename='js/htmx.min.js') }}"></script>
+    <script src="https://unpkg.com/htmx.org/dist/ext/response-targets.js"></script>
+    <script>
+        let dismissBtn = document.querySelector('#dismiss-btn');
+    </script>
+</body>
+</html>

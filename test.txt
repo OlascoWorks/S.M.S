@@ -1,0 +1,33 @@
+Just a little bit of information concerning the project, official admin roles are split into 2: super admins and admins. A super admin has all administrative rights and is typically the principal while admins have lesser administrative rights compared to super admins. Each school is limited to a maximum of 2 super admins. This is to ensure that there are less holes and rights are restricted but schools can purchase an add-on to add more super admins. 
+
+
+
+Since the super admin has all administrative rights, they are the only ones allowed to create certain entities like admins, teachers, students and guardians. Currently inside my `sAuth`(fo creating, deletinng and updating above entities) blueprint, I have the following logic inside every route and I think this is too repetitive.
+```
+if not currentUser:  //currentUser is gotten from `token_required`
+    try_refresh()  //to to refresh token
+handle_unauthorization(currentUser)  //handles super admin authorization failure
+if not g.school_id:
+    return redirect('404.html'), 404
+```
+
+So for example, a route forr deletinng a student would look like this;
+```
+@login_required
+@token_required
+@sAuth.route('/student/delete', methods=['POST'])
+def delete_student(currentUser, access_token):
+    if request.method == 'POST':
+        if not currentUser:
+            try_refresh()
+        handle_unauthorization(currentUser)
+
+        name, email = request.args
+        first_name, last_name = name
+
+        student = Student.query.filter_by(first_name=first_name,last_name=last_name,email=email)
+        db.session.delete(student)
+        db.session.commit()
+```
+
+How can I make sure that every route performs this logic first before moving on without being repetitive?
