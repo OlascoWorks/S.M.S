@@ -26,10 +26,13 @@ class School(db.Model):
 
     """
 
+    __tablename__ = "school"
+
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), nullable=False, unique=True)
     short_name = db.Column(db.String(80), nullable=False, unique=True)
     # logo = db.Column(db.Image, nullable=False)
+    # backdrop = db.Column(db.Image, nullable=False)
     motto = db.Column(db.String(80))
     address = db.Column(db.String(80), nullable=False)
     country = db.Column(db.String(80), nullable=False)

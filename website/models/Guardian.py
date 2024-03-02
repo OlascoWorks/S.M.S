@@ -21,6 +21,8 @@ class Guardian(db.Model, UserMixin):
 
     """
 
+    __tablename__ = "guardian"
+
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), unique=True, nullable=False)
     # Picture = db.Column(db.Image)

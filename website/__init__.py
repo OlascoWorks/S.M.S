@@ -23,7 +23,7 @@ def create_app():
         return render_template('404.html', current_user=current_user)
 
     from .api import views, auth, sAuth, aAuth, tAuth, gAuth
-    from .api.v1.user import signup, login, logout
+    from .api.v1.user import login, logout
     
     app.register_blueprint(views, url_prefix='/')
     app.register_blueprint(auth, url_prefix='/auth')

@@ -1,1 +1,26 @@
 {% extends 'base.html' %}
+{% block content %}
+<div class="h-[100vh] w-full absolute">
+    <img src="/static/images/Logo.png" alt="Logo" id="logo" class="logo max-md:w-32 max-md:h-20 w-24 h-24 rounded-lg ml-[50%] -translate-x-1/2 mt-5 object-contain">
+    <h1 class="mt-1 max-md:text-xl text-3xl font-bold !font-secondary" align="center">Trinity Schools</h1>
+
+    <div class="max-lg:w-[80%] max-sm:h-[120vh] w-[70%] h-[60vh] mt-10 ml-[50%] -translate-x-1/2 grid max-sm:grid-cols-1 max-sm:grid-rows-4 grid-cols-2 grid-rows-2 max-sm:gap-10 gap-y-10 gap-x-24">
+        <a href="{{ url_for('auth.admin_login') }}" id="box" class="box rounded-bg bg-white border border-opacity-50 flex flex-col justify-center items-center text-center cursor-pointer hover:bg-slate-100">
+            <div class="w-5 h-5 fa-solid fa-gears"></div>
+            <p>I am an Admin</p>
+        </a>
+        <a href="{{ url_for('auth.teacher_login') }}" id="box" class="box rounded-bg bg-white border border-opacity-50 flex flex-col justify-center items-center text-center cursor-pointer hover:bg-slate-100">
+            <div class="w-5 h-5 fa-solid fa-black-tie"></div>
+            <p>I am a Teacher</p>
+        </a>
+        <a href="{{ url_for('auth.guardian_login') }}" id="box" class="box rounded-bg bg-white border border-opacity-50 flex flex-col justify-center items-center text-center cursor-pointer hover:bg-slate-100">
+            <div class="w-5 h-5 fa-solid fa-male"></div>
+            <p>I am a Guardian</p>
+        </a>
+        <a href="{{ url_for('auth.student_login') }}" id="box" class="box rounded-bg bg-white border border-opacity-50 flex flex-col justify-center items-center text-center cursor-pointer hover:bg-slate-100">
+            <div class="w-5 h-5 fa-solid fa-graduation-cap"></div>
+            <p>I am a Student</p>
+        </a>
+    </div>
+</div>
+{% endblock %}

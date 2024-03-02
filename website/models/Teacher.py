@@ -28,6 +28,8 @@ class Teacher(db.Model, UserMixin):
 
     """
 
+    __tablename__ = "teacher"
+
     id = db.Column(db.Integer, primary_key=True)
     # Picture = db.Column(db.Image, nullable=False)
     first_name = db.Column(db.String(80), nullable=False)

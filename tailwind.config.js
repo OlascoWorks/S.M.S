@@ -3,12 +3,19 @@ module.exports = {
   content: ["./website/**/*.{html,js}"],
   theme: {
     extend: {
+      translate: {
+        calc: 'calc(50vw - 8px)'
+      },
+      margin: {
+        calc: 'calc(50vw - 8px)',
+        joinContent: 'calc(50% - 0px)'
+      },
       colors: {
-        primary_blue: '8ECAE6',
-        secondary_blue: '219EBC',
-        tertiary_blue: '023047',
-        primary_orage: 'FB8500',
-        secondary_orage: 'FFB703'
+        'primary-blue': '#8ECAE6',
+        'secondary-blue': '#219EBC',
+        'tertiary-blue': '#023047',
+        'primary-orange': '#FB8500',
+        'secondary-orange': '#FFB703'
       }
     },
   },

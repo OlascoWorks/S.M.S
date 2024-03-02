@@ -1,6 +1,4 @@
 from website import db
-from flask_login import UserMixin
-from sqlalchemy.sql import func
 
 class Subject(db.Model):
     """
@@ -18,6 +16,8 @@ class Subject(db.Model):
         __repr__() -> str: Returns a string representation of the subject object.
 
     """
+
+    __tablename__ = "subject"
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), unique=True, nullable=False)

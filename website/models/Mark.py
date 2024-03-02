@@ -1,7 +1,7 @@
 from website import db
 from flask_login import UserMixin
 
-class Subject(db.Model):
+class Mark(db.Model):
     """
     Represents a subject in the system.
 
@@ -22,11 +22,13 @@ class Subject(db.Model):
 
     """
 
+    __tablename__ = "mark"
+
     id = db.Column(db.Integer, primary_key=True)
     score = db.Column(db.Integer, nullable=False)
     percentage = db.Column(db.String(80))
-    student_id = db.column(db.Integer, db.ForeignKey('student.id'))
-    subject_id = db.Column(db.Inetegr, db.ForeignKey('subject.id'))
+    student_id = db.Column(db.Integer, db.ForeignKey('student.id'))
+    subject_id = db.Column(db.Integer, db.ForeignKey('subject.id'))
 
     student = db.relationship('Student')
     subject = db.relationship('Subject')

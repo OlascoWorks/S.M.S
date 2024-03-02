@@ -22,7 +22,7 @@ def first_things_first(currentUser):
     if not g.school_id:
         return redirect('404.html'), 404
 
-@gAuth.before_request()
+@gAuth.before_request
 def before_request():
     school_name = request.subdomain
 

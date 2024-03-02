@@ -46,4 +46,4 @@ def teacher_login():
         else:
             return make_error_response("User does not exist"), 400
     
-    return render_template('login.html')
+    return render_template('teacher_login.html')

@@ -10,7 +10,7 @@ from website.api import auth, BASE_URL
 
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
-    pass
+    return render_template('login.html')
 
 @auth.route('/logout', methods=['POST'])
 @login_required
